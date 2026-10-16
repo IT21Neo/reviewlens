@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ReviewLens: downloaded raw corpus (rebuilt by scripts/prepare_data.py)
+data/raw/
