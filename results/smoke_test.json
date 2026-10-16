@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-10-16T17:42:49+07:00",
+  "python": "3.11.4",
+  "openai_sdk": "3.31.0",
+  "checks": {
+    "settings": {
+      "pass": true,
+      "api_key_set": true
+    },
+    "basic_chat": {
+      "pass": true,
+      "reply": "PROXY OK",
+      "model_reported": "gemma-4-E4B-it",
+      "usage": {
+        "completion_tokens": 3,
+        "prompt_tokens": 16,
+        "total_tokens": 19,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "latency_s": 0.88
+    },
+    "repeatability": {
+      "pass": true,
+      "identical": true,
+      "reply_1": "A product review is an evaluation of a product's quality, performance, and value by a user or expert.",
+      "reply_2": "A product review is an evaluation of a product's quality, performance, and value by a user or expert."
+    },
+    "json_prompt": {
+      "pass": true,
+      "raw_reply": "{\"sentiment\": \"negative\"}",
+      "parsed": {
+        "sentiment": "negative"
+      },
+      "json_error": null,
+      "note": "pass=False means we must extract/repair JSON ourselves (handled in a later milestone)"
+    },
+    "tool_calling": {
+      "finish_reason": "tool_calls",
+      "content": null,
+      "tool_calls": [
+        {
+          "name": "count_reviews",
+          "arguments_raw": "{\"aspect\": \"delivery\", \"sentiment\": \"negative\"}",
+          "arguments_parsed": {
+            "aspect": "delivery",
+            "sentiment": "negative"
+          }
+        }
+      ],
+      "pass": true
+    }
+  },
+  "base_url": "https://llm.nat-d.uk/v1",
+  "model_requested": "gemma-4-E4B-it"
+}
