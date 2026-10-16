@@ -1,0 +1,31 @@
+﻿review_id,suggested_sentiment,suggested_aspects,confidence,reason_th
+w245,positive,taste;comfort;portion,medium,ชมบะหมี่/เป็ด ติต้มจืดกับข้าวน้อย แต่สรุป 'โดยรวมก็ใช้ได้' และชมที่นั่งเยอะ
+w183,negative,taste;price;service;comfort;other,high,ไก่ไม่สุก ไม่คุ้ม 'คงไม่มาแล้ว'; ร้านเปลี่ยนให้ (service); ร้านสะอาด (comfort); ที่จอดน้อย/ไม่รับบัตร (other)
+w148,positive,taste;service;comfort;other,medium,เค้ก/ชาเขียวอร่อย เจ้าของใจดี ร้านน่ารัก; other = เค้กเปลี่ยนไม่ประจำ (เมนู) — ตัดออกได้ถ้ามองว่าแค่เล่า
+w280,positive,taste,high,ชมรสชาติ cheese tart อย่างเดียว
+w141,negative,taste;service,high,รออาหารนานมาก + ไม่อร่อย + 'จะไม่มาอีก'
+w087,positive,taste;price,high,กาแฟเข้มถูกใจ ราคาไม่สูง 'คอกาแฟห้ามพลาด' (ส่วนอธิบายเมนูไม่นับ)
+w289,neutral,taste;price;comfort,low,ให้คะแนนเอง รสชาติ 2 / ความสะอาด 3 / ราคา 4 คุ้ม ไม่มีสรุป — negative ก็เป็นไปได้
+w107,negative,taste;price,high,กาแฟขม-หวาน 'ต้องทิ้ง' + 'แก้วละตั้ง 40 บาท'
+w232,negative,taste;price;portion,high,ไม่อร่อย ผักเหี่ยว จานเล็ก ปริมาณน้อย แพงเกินเหตุ 'ผิดหวัง'
+w111,positive,taste;comfort;other,low,"แนะนำน้ำผลไม้ (taste — อาจตัดได้ถ้าไม่ได้บอกรสชาติ), ที่นั่งพอได้ (comfort), ที่จอดรถ (other)"
+w197,negative,taste;price;service,high,รอนาน รสจืด/หวานเกิน ประชดราคา 'แก้วละ 40 นี่เอามาทั้งไร่รึเป่า'
+w199,positive,other,medium,ชมเมนูหลากหลาย ที่จอดรถเยอะ มีเดลิเวอรี่ หาง่าย — ทั้งหมดเป็น other ไม่มีพูดรสชาติ
+w037,negative,taste;price,high,ผิดหวังสเต๊ก 'คุณภาพมาตามราคา'
+w293,negative,taste;price;service,high,หมูเหนียว มันเยิ้ม ลืมออร์เดอร์ รอนาน 'แพงกว่าที่คาด'
+w039,positive,taste,high,เป็ดอร่อยมาก นุ่ม ไม่คาว แนะนำ
+w275,positive,taste;service;comfort,high,บรรยากาศดี รสชาติดี รอนานแต่ไม่หงุดหงิด (service)
+w239,negative,taste;price;other,medium,ความหลากหลายลด ไม่มีเติม (other) คิดค่าน้ำเพิ่ม (price) น้ำจิ้มเหม็นเขียว (taste) 'ปรับปรุงแล้วจะเพิ่มดาว'
+w044,positive,taste;price;service;portion,high,ซุป/เป็ดอร่อย ได้เป็ดเยอะ คนขายน่ารัก ราคาเบา
+w173,positive,taste;comfort,high,ร้านน่ารัก บรรยากาศ กาแฟ/โกโก้อร่อย (แก้วช็อตใหญ่ไป = การเสิร์ฟ นับรวมใน taste)
+w098,negative,taste;price;service;other,low,รสชาติพอใช้/มันไป ราคาสูงโหด บริการใช้ได้ ที่จอดริมทาง — ไม่มีสรุป neutral ก็เป็นไปได้
+w168,positive,taste;portion,high,อร่อย ถ้วยเดียวอิ่ม ให้มาเบ้อเริ่ม (การซื้อกลับบ้านแค่เล่า ไม่นับ)
+w286,positive,taste,high,ชานม/ไข่มุกอร่อย (โปรแค่เล่า ไม่มีความเห็นเรื่องราคา)
+w262,positive,taste;comfort,medium,นั่งสบาย บรรยากาศดี มอคค่าจืดไป แต่ชวนให้ลอง
+w108,positive,taste;price;other,high,อร่อยเหมือนร้านดี ราคาถูกมาก เมนูไม่ธรรมดา (other)
+w042,positive,taste;price;portion,medium,รสหวานไม่ถูกปากทุกคน สุกี้เข้มข้น ราคาไม่แพง อิ่มแน่นอน (การตกแต่ง/ที่จอดแค่บรรยาย)
+w017,negative,service,medium,พนักงานแนะนำแล้วของหมด 'หลอกลวง' — อาจเพิ่ม other (ของหมด) หรือ price
+w201,positive,taste;price;portion;other,high,อร่อยทุกอย่าง เต็มจาน คุ้มมาก เมนูเยอะ
+w211,negative,taste;price;service,high,อาหารแย่หลายจาน ผักเหี่ยว พนักงานไม่ยิ้ม วางของเสียงดัง ราคาไม่ถูก
+w274,positive,taste;price;comfort,high,อร่อยทุกอย่าง ราคาสูงแต่ฟิน บรรยากาศแบบครัวที่บ้าน
+w164,positive,taste;price;comfort,high,ตกแต่งสวยขึ้นแต่เล็กลง อร่อย ราคาไม่แพง ลด 10%

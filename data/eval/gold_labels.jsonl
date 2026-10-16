@@ -1,0 +1,40 @@
+{"review_id": "w203", "split": "dev", "gold_sentiment": "negative", "gold_aspects": ["taste", "price"], "gold_evidence": ["ปลาเงินทอด แข็งได้โล่ห์มากครับ", "ตัวตับไม่อร่อยเท่าที่ควรครับ", "ทานแล้วไม่รู้สึกถึงเนื้อหรือเครื่องสุกี้เลยครับ", "ราวๆ 1 พันบาทต่อคน มีโปรลด 40% ถ้าจ่ายเงินสดบางเมนู"], "notes": "", "label_source": "claude_edited"}
+{"review_id": "w060", "split": "dev", "gold_sentiment": "negative", "gold_aspects": ["taste", "service"], "gold_evidence": ["รสชาติอาหารธรรมดาสุดๆ", "รออาหารเป็น ชม.", "ไม่มีความสดเลย"], "notes": "", "label_source": "human"}
+{"review_id": "w021", "split": "dev", "gold_sentiment": "negative", "gold_aspects": ["taste"], "gold_evidence": ["คำแรก ไม่อร่อย", "ขนาดหิวมาก ยังไม่อร่อย"], "notes": "", "label_source": "human"}
+{"review_id": "w254", "split": "dev", "gold_sentiment": "positive", "gold_aspects": ["taste", "service", "comfort", "other"], "gold_evidence": ["อร่อยมาก กลมกล่อมจริงๆ", "รอคิวสับเป็ดนานหน่อย", "ทางเข้าร้านค่อนข้างแคบ", "ไม่มีที่จอดรถ"], "notes": "", "label_source": "human"}
+{"review_id": "w176", "split": "dev", "gold_sentiment": "neutral", "gold_aspects": ["taste", "price", "comfort"], "gold_evidence": ["ตกแต่งร้านน่านั่งใช้ได้เลยคะ", "รสชาตทั้ง 2 จานพอใช้ได้คะ", "ราคาแอบสูงนะคะ"], "notes": "", "label_source": "human"}
+{"review_id": "w288", "split": "dev", "gold_sentiment": "positive", "gold_aspects": ["taste", "price"], "gold_evidence": ["น้ำกะทิหอมหวานกำลังดี", "ราคาไม่แพง"], "notes": "", "label_source": "human"}
+{"review_id": "w009", "split": "dev", "gold_sentiment": "positive", "gold_aspects": ["taste", "service"], "gold_evidence": ["เนื้อปูผัดพงกะหรี่ สุดยอด", "พนักงานบริการดีค่ะนอบน้อมค่า"], "notes": "", "label_source": "human"}
+{"review_id": "w001", "split": "dev", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "other"], "gold_evidence": ["อร่อยมากๆ", "ไม่ค่อยอร่อยมากนัก", "ไม่แพงค่ะ", "ที่จอดรถก็หาได้ริมฟุตบาทเรื่อยไปเลยค่ะ"], "notes": "", "label_source": "human"}
+{"review_id": "w246", "split": "dev", "gold_sentiment": "positive", "gold_aspects": ["taste", "comfort", "portion", "other"], "gold_evidence": ["ก้อมีให้เลือกเยอะมาก", "ข้าวสวยให้มาเยอะมาก", "อาหารเราว่ารสชาดยังธรรมดา ไม่ว้าว", "บรรรยากาศโดยรวม ดีค่ะ"], "notes": "", "label_source": "human"}
+{"review_id": "w192", "split": "dev", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "comfort", "other"], "gold_evidence": ["อร่อยมากถ้าเอามารวมกันแล้วกินมันจะเกิดความพอดีขึ้น", "ราคาก็ปกติ", "ร้านไม่ได้ตกแต่ง", "เปิดดึกด้วยคะ"], "notes": "", "label_source": "human"}
+{"review_id": "w245", "split": "test", "gold_sentiment": "neutral", "gold_aspects": ["taste", "comfort", "portion"], "gold_evidence": [], "notes": "", "label_source": "claude_edited"}
+{"review_id": "w183", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price", "service", "comfort", "other"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w148", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "service", "comfort", "other"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w280", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w141", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "service"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w087", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "price"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w289", "split": "test", "gold_sentiment": "neutral", "gold_aspects": ["taste", "price", "comfort"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w107", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w232", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price", "portion"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w111", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["comfort", "other"], "gold_evidence": [], "notes": "", "label_source": "claude_edited"}
+{"review_id": "w197", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price", "service"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w199", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["other"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w037", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w293", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price", "service"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w039", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w275", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "service", "comfort"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w239", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price", "other"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w044", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "service", "portion"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w173", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "comfort"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w098", "split": "test", "gold_sentiment": "neutral", "gold_aspects": ["taste"], "gold_evidence": [], "notes": "", "label_source": "claude_edited"}
+{"review_id": "w168", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "portion"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w286", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w262", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "comfort"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w108", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "other"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w042", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "portion"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w017", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["service"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w201", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "portion", "other"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w211", "split": "test", "gold_sentiment": "negative", "gold_aspects": ["taste", "price", "service"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w274", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "comfort"], "gold_evidence": [], "notes": "", "label_source": "human"}
+{"review_id": "w164", "split": "test", "gold_sentiment": "positive", "gold_aspects": ["taste", "price", "comfort"], "gold_evidence": [], "notes": "", "label_source": "human"}
