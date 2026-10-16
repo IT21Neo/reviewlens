@@ -1,0 +1,5 @@
+# Milestone 1-2: only what the proxy test and unit tests need.
+# Add fastapi, uvicorn, pydantic, httpx in later milestones when they are used.
+openai>=1.40
+python-dotenv>=1.0
+pytest>=8.0
