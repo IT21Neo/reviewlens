@@ -28,7 +28,9 @@ from app.taxonomy import ASPECT_DESCRIPTIONS, ASPECTS, SENTIMENTS
 
 STATIC = Path(__file__).parent / "static"
 DISCLAIMER = ("Labels, counts and answers come from an LLM (gemma-4-E4B-it) and can be wrong. "
-              "See the Evaluation page for how often it agreed with hand-checked labels.")
+              "See the Evaluation page for how often it agreed with hand-checked labels. "
+              "The 300 reviews are a balanced sample (60 per star rating), so percentages describe "
+              "this sample, not Wongnai reviews in general.")
 Sentiment = Literal["positive", "neutral", "negative"]
 Aspect = Literal["taste", "price", "service", "comfort", "portion", "other"]
 
