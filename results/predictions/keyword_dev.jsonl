@@ -1,0 +1,10 @@
+{"review_id": "w203", "sentiment": "negative", "aspects": ["taste", "price"], "evidence": null}
+{"review_id": "w060", "sentiment": "negative", "aspects": ["taste", "service", "portion"], "evidence": null}
+{"review_id": "w021", "sentiment": "neutral", "aspects": ["taste", "portion"], "evidence": null}
+{"review_id": "w254", "sentiment": "positive", "aspects": ["taste", "service", "comfort", "portion", "other"], "evidence": null}
+{"review_id": "w176", "sentiment": "positive", "aspects": ["taste", "price", "comfort"], "evidence": null}
+{"review_id": "w288", "sentiment": "positive", "aspects": ["taste", "price", "service", "portion"], "evidence": null}
+{"review_id": "w009", "sentiment": "positive", "aspects": ["taste", "service", "comfort"], "evidence": null}
+{"review_id": "w001", "sentiment": "positive", "aspects": ["taste", "price", "portion", "other"], "evidence": null}
+{"review_id": "w246", "sentiment": "negative", "aspects": ["taste", "portion", "other"], "evidence": null}
+{"review_id": "w192", "sentiment": "positive", "aspects": ["taste", "price", "service", "comfort", "portion", "other"], "evidence": null}

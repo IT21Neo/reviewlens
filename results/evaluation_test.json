@@ -1,8 +1,8 @@
 {
   "split": "test",
   "n": 30,
-  "generated": "2026-11-01T16:05:30+07:00",
-  "commit": "615ef0e",
+  "generated": "2026-11-01T16:21:47+07:00",
+  "commit": "d559596",
   "methods": {
     "majority": {
       "n": 30,
@@ -419,6 +419,119 @@
         "snippets": 159,
         "verbatim": 158,
         "validity": 0.9937106918238994
+      },
+      "errors": [
+        {
+          "review_id": "w111",
+          "gold": "positive",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w098",
+          "gold": "neutral",
+          "pred": "negative"
+        },
+        {
+          "review_id": "w262",
+          "gold": "positive",
+          "pred": "neutral"
+        }
+      ]
+    },
+    "llm_v2": {
+      "n": 30,
+      "missing": [],
+      "failed": [],
+      "sentiment": {
+        "n": 30,
+        "accuracy": 0.9,
+        "macro_f1": 0.8204365079365079,
+        "per_class": {
+          "positive": {
+            "precision": 1.0,
+            "recall": 0.8823529411764706,
+            "f1": 0.9375,
+            "support": 17
+          },
+          "neutral": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285715,
+            "support": 3
+          },
+          "negative": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          }
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15,
+            "neutral": 2,
+            "negative": 0
+          },
+          "neutral": {
+            "positive": 0,
+            "neutral": 2,
+            "negative": 1
+          },
+          "negative": {
+            "positive": 0,
+            "neutral": 0,
+            "negative": 10
+          }
+        }
+      },
+      "aspects": {
+        "micro_precision": 0.813953488372093,
+        "micro_recall": 0.9333333333333333,
+        "micro_f1": 0.8695652173913044,
+        "exact_set_match": 0.43333333333333335,
+        "per_aspect": {
+          "taste": {
+            "precision": 0.9642857142857143,
+            "recall": 1.0,
+            "f1": 0.9818181818181818,
+            "support": 27
+          },
+          "price": {
+            "precision": 0.9411764705882353,
+            "recall": 1.0,
+            "f1": 0.9696969696969697,
+            "support": 16
+          },
+          "service": {
+            "precision": 0.8,
+            "recall": 0.8888888888888888,
+            "f1": 0.8421052631578948,
+            "support": 9
+          },
+          "comfort": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1": 0.9,
+            "support": 10
+          },
+          "portion": {
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.7499999999999999,
+            "support": 6
+          },
+          "other": {
+            "precision": 0.36363636363636365,
+            "recall": 0.5714285714285714,
+            "f1": 0.4444444444444444,
+            "support": 7
+          }
+        }
+      },
+      "evidence": {
+        "snippets": 92,
+        "verbatim": 92,
+        "validity": 1.0
       },
       "errors": [
         {
