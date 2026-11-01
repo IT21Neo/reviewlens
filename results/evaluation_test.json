@@ -1,0 +1,326 @@
+{
+  "split": "test",
+  "n": 30,
+  "generated": "2026-11-01T15:51:43+07:00",
+  "commit": "bfce249",
+  "methods": {
+    "majority": {
+      "n": 30,
+      "missing": [],
+      "sentiment": {
+        "n": 30,
+        "accuracy": 0.5666666666666667,
+        "macro_f1": 0.24113475177304963,
+        "per_class": {
+          "positive": {
+            "precision": 0.5666666666666667,
+            "recall": 1.0,
+            "f1": 0.7234042553191489,
+            "support": 17
+          },
+          "neutral": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3
+          },
+          "negative": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 10
+          }
+        },
+        "confusion": {
+          "positive": {
+            "positive": 17,
+            "neutral": 0,
+            "negative": 0
+          },
+          "neutral": {
+            "positive": 3,
+            "neutral": 0,
+            "negative": 0
+          },
+          "negative": {
+            "positive": 10,
+            "neutral": 0,
+            "negative": 0
+          }
+        }
+      },
+      "errors": [
+        {
+          "review_id": "w245",
+          "gold": "neutral",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w183",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w141",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w289",
+          "gold": "neutral",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w107",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w232",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w197",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w037",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w293",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w239",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w098",
+          "gold": "neutral",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w017",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w211",
+          "gold": "negative",
+          "pred": "positive"
+        }
+      ]
+    },
+    "rating": {
+      "n": 30,
+      "missing": [],
+      "sentiment": {
+        "n": 30,
+        "accuracy": 0.8,
+        "macro_f1": 0.7270405201439685,
+        "per_class": {
+          "positive": {
+            "precision": 1.0,
+            "recall": 0.7058823529411765,
+            "f1": 0.8275862068965517,
+            "support": 17
+          },
+          "neutral": {
+            "precision": 0.3333333333333333,
+            "recall": 0.6666666666666666,
+            "f1": 0.4444444444444444,
+            "support": 3
+          },
+          "negative": {
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091,
+            "support": 10
+          }
+        },
+        "confusion": {
+          "positive": {
+            "positive": 12,
+            "neutral": 4,
+            "negative": 1
+          },
+          "neutral": {
+            "positive": 0,
+            "neutral": 2,
+            "negative": 1
+          },
+          "negative": {
+            "positive": 0,
+            "neutral": 0,
+            "negative": 10
+          }
+        }
+      },
+      "errors": [
+        {
+          "review_id": "w289",
+          "gold": "neutral",
+          "pred": "negative"
+        },
+        {
+          "review_id": "w173",
+          "gold": "positive",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w286",
+          "gold": "positive",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w262",
+          "gold": "positive",
+          "pred": "negative"
+        },
+        {
+          "review_id": "w201",
+          "gold": "positive",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w164",
+          "gold": "positive",
+          "pred": "neutral"
+        }
+      ]
+    },
+    "keyword": {
+      "n": 30,
+      "missing": [],
+      "sentiment": {
+        "n": 30,
+        "accuracy": 0.7666666666666667,
+        "macro_f1": 0.6233893557422968,
+        "per_class": {
+          "positive": {
+            "precision": 0.8888888888888888,
+            "recall": 0.9411764705882353,
+            "f1": 0.9142857142857143,
+            "support": 17
+          },
+          "neutral": {
+            "precision": 0.2,
+            "recall": 0.3333333333333333,
+            "f1": 0.25,
+            "support": 3
+          },
+          "negative": {
+            "precision": 0.8571428571428571,
+            "recall": 0.6,
+            "f1": 0.7058823529411764,
+            "support": 10
+          }
+        },
+        "confusion": {
+          "positive": {
+            "positive": 16,
+            "neutral": 1,
+            "negative": 0
+          },
+          "neutral": {
+            "positive": 1,
+            "neutral": 1,
+            "negative": 1
+          },
+          "negative": {
+            "positive": 1,
+            "neutral": 3,
+            "negative": 6
+          }
+        }
+      },
+      "aspects": {
+        "micro_precision": 0.7333333333333333,
+        "micro_recall": 0.88,
+        "micro_f1": 0.8,
+        "exact_set_match": 0.3,
+        "per_aspect": {
+          "taste": {
+            "precision": 0.9629629629629629,
+            "recall": 0.9629629629629629,
+            "f1": 0.9629629629629629,
+            "support": 27
+          },
+          "price": {
+            "precision": 0.875,
+            "recall": 0.875,
+            "f1": 0.875,
+            "support": 16
+          },
+          "service": {
+            "precision": 0.45454545454545453,
+            "recall": 0.5555555555555556,
+            "f1": 0.5,
+            "support": 9
+          },
+          "comfort": {
+            "precision": 0.8333333333333334,
+            "recall": 1.0,
+            "f1": 0.9090909090909091,
+            "support": 10
+          },
+          "portion": {
+            "precision": 0.375,
+            "recall": 1.0,
+            "f1": 0.5454545454545454,
+            "support": 6
+          },
+          "other": {
+            "precision": 0.625,
+            "recall": 0.7142857142857143,
+            "f1": 0.6666666666666666,
+            "support": 7
+          }
+        }
+      },
+      "errors": [
+        {
+          "review_id": "w289",
+          "gold": "neutral",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w107",
+          "gold": "negative",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w197",
+          "gold": "negative",
+          "pred": "positive"
+        },
+        {
+          "review_id": "w037",
+          "gold": "negative",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w098",
+          "gold": "neutral",
+          "pred": "negative"
+        },
+        {
+          "review_id": "w108",
+          "gold": "positive",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w017",
+          "gold": "negative",
+          "pred": "neutral"
+        }
+      ]
+    }
+  }
+}
