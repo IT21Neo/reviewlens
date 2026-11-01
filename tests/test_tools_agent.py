@@ -117,3 +117,17 @@ def test_load_store_joins_analyses(tmp_path):
     s = load_store(analyses_path=preds)
     assert len(s.reviews) == 300 and len(s.analysed) == 1 and s.failed == ["w002"]
     assert s.reviews["w001"].evidence == ("x",)  # unverified snippet dropped
+
+
+def test_empty_answer_is_retried_without_tools(store, fake_chat):
+    calls = fake_chat([(None, [_tool_call("c1", "count_reviews", {"sentiment": "neutral"})]),
+                       ("", None), ("1 review is neutral.", None)])
+    res = agent.ask("How many neutral reviews?", store)
+    assert res.answer == "1 review is neutral." and res.forced_retry and res.stopped_by == "answer"
+    assert calls[-1]["tools"] is None
+
+
+def test_empty_answer_twice_is_reported_not_invented(store, fake_chat):
+    fake_chat([(None, [_tool_call("c1", "count_reviews", {})]), ("", None), ("  ", None)])
+    res = agent.ask("How many reviews?", store)
+    assert res.stopped_by == "empty" and res.answer == agent.EMPTY_ANSWER

@@ -11,6 +11,7 @@ The "right" numbers are computed by running the expected call on the same stored
 so this measures tool selection and faithful reporting, not label accuracy.
 
     python -m scripts.eval_agent        -> results/agent_eval.json and .md
+    python -m scripts.eval_agent v2     -> results/agent_eval_v2.json and .md (keeps the old run)
 """
 from __future__ import annotations
 
@@ -25,6 +26,7 @@ from app.tools import run_tool
 
 QUESTIONS = Path("data/eval/agent_questions.jsonl")
 RESULTS = Path("results")
+TAG = sys.argv[1] if len(sys.argv) > 1 else ""   # optional: python -m scripts.eval_agent v2
 
 
 def main() -> int:
@@ -47,8 +49,8 @@ def main() -> int:
         rows.append({"id": q["id"], "question": q["question"], "type": q["type"],
                      "tools_called": [(c["tool"], c["validated_arguments"]) for c in calls],
                      "tool_choice": tool_choice, "args_exact": args_exact, "answer_ok": answer_ok,
-                     "stopped_by": res.stopped_by, "rounds": res.rounds, "answer": res.answer})
-        print(f"{q['id']} tool={tool_choice!s:5} args={args_exact!s:5} answer={answer_ok!s:5} {res.stopped_by:10} {[c[0] for c in rows[-1]['tools_called']]}")
+                     "stopped_by": res.stopped_by, "forced_retry": res.forced_retry, "rounds": res.rounds, "answer": res.answer})
+        print(f"{q['id']} tool={tool_choice!s:5} args={args_exact!s:5} answer={answer_ok!s:5} {res.stopped_by:10} retry={res.forced_retry!s:5} {[c[0] for c in rows[-1]['tools_called']]}")
 
     def rate(key):
         vals = [r[key] for r in rows if r[key] is not None]
@@ -56,7 +58,7 @@ def main() -> int:
 
     summary = {k: rate(k) for k in ("tool_choice", "args_exact", "answer_ok")}
     RESULTS.mkdir(exist_ok=True)
-    (RESULTS / "agent_eval.json").write_text(json.dumps({"summary": summary, "rows": rows}, ensure_ascii=False, indent=2),
+    (RESULTS / f"agent_eval{'_' + TAG if TAG else ''}.json").write_text(json.dumps({"summary": summary, "rows": rows}, ensure_ascii=False, indent=2),
                                              encoding="utf-8")
     md = ["# Agent evaluation", "", f"Analyses: `{store.analyses_file}` · questions: {len(rows)}", "",
           "| Metric | Score | n |", "|---|---:|---:|"]
@@ -64,9 +66,9 @@ def main() -> int:
     md += ["", "| id | question | tools called | tool | args | answer |", "|---|---|---|---|---|---|"]
     md += [f"| {r['id']} | {r['question']} | {'; '.join(f'{t} {json.dumps(a, ensure_ascii=False)}' for t, a in r['tools_called']) or '—'} | "
            f"{r['tool_choice']} | {r['args_exact']} | {r['answer_ok']} |" for r in rows]
-    (RESULTS / "agent_eval.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    (RESULTS / f"agent_eval{'_' + TAG if TAG else ''}.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print("\n" + "\n".join(md[4:4 + len(summary) + 2]))
-    print("saved results/agent_eval.json and .md")
+    print(f"saved results/agent_eval{'_' + TAG if TAG else ''}.json and .md")
     return 0
 
 

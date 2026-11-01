@@ -1,0 +1,219 @@
+{
+  "summary": {
+    "tool_choice": [
+      0.8,
+      10
+    ],
+    "args_exact": [
+      0.8,
+      10
+    ],
+    "answer_ok": [
+      1.0,
+      7
+    ]
+  },
+  "rows": [
+    {
+      "id": "a01",
+      "question": "How many reviews mention price?",
+      "type": "count",
+      "tools_called": [
+        [
+          "aspect_summary",
+          {
+            "aspect": "price"
+          }
+        ]
+      ],
+      "tool_choice": false,
+      "args_exact": false,
+      "answer_ok": true,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "The number of reviews that mention price is 148."
+    },
+    {
+      "id": "a02",
+      "question": "มีรีวิวด้านลบทั้งหมดกี่รีวิว",
+      "type": "count",
+      "tools_called": [
+        [
+          "count_reviews",
+          {
+            "sentiment": "negative",
+            "aspect": null
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": true,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "มีรีวิวเชิงลบทั้งหมด 98 รีวิว จากรีวิวที่ถูกวิเคราะห์ทั้งหมด 300 รีวิว"
+    },
+    {
+      "id": "a03",
+      "question": "How many negative reviews talk about service?",
+      "type": "count",
+      "tools_called": [
+        [
+          "count_reviews",
+          {
+            "sentiment": "negative",
+            "aspect": "service"
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": true,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "The number of negative reviews that talk about service is 59, according to the analysed labels."
+    },
+    {
+      "id": "a04",
+      "question": "How many positive reviews are there?",
+      "type": "count",
+      "tools_called": [
+        [
+          "count_reviews",
+          {
+            "sentiment": "positive",
+            "aspect": null
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": true,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "There are 157 positive reviews out of 300 analysed reviews, according to the analysed labels."
+    },
+    {
+      "id": "a05",
+      "question": "รีวิวที่พูดถึงราคา มีกี่รีวิวที่เป็นกลาง (neutral)",
+      "type": "count",
+      "tools_called": [
+        [
+          "count_reviews",
+          {
+            "sentiment": "neutral",
+            "aspect": "price"
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": true,
+      "stopped_by": "answer",
+      "forced_retry": true,
+      "rounds": 2,
+      "answer": "There are 24 reviews that mention price and are labeled as neutral, according to the analysed labels."
+    },
+    {
+      "id": "a06",
+      "question": "Show three negative reviews about taste.",
+      "type": "examples",
+      "tools_called": [
+        [
+          "get_review_examples",
+          {
+            "sentiment": "negative",
+            "aspect": "taste",
+            "limit": 3
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": true,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "The three negative reviews about taste are:\n*   w002: \"ส่วนราคาค่อนข้างถูกคะ ต่ำกว่า 100\"\n*   w005: \"คุณภาพของแย่มาก\"\n*   w006: \"เค้กรสชาติไม่ประทับใจเท่าไหร่\""
+    },
+    {
+      "id": "a07",
+      "question": "ขอตัวอย่างรีวิวที่พูดถึงปริมาณอาหาร 2 รีวิว",
+      "type": "examples",
+      "tools_called": [
+        [
+          "get_review_examples",
+          {
+            "sentiment": null,
+            "aspect": "portion",
+            "limit": 2
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": true,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "ตัวอย่างรีวิวที่พูดถึงปริมาณอาหาร (portion) มี 2 รีวิว ได้แก่ w005 และ w006"
+    },
+    {
+      "id": "a08",
+      "question": "Summarize what customers say about the service.",
+      "type": "summary",
+      "tools_called": [
+        [
+          "aspect_summary",
+          {
+            "aspect": "service"
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": null,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "The service was mentioned 131 times out of 300 analyzed reviews. The sentiment breakdown is: 53 positive, 19 neutral, and 59 negative.\n\nExamples include:\n*   **Positive:** w008 (\"อร่อยๆๆ น้ำซุปไก่\"), w009 (\"เนื้อปูผัดพงกะหรี่ สุดยอด\")\n*   **Neutral:** w013 (\"พนักงานบริการดีค่ะ\"), w019 (\"เส้นเซี่ยงไฮ้ผัดจนชิ้นเล็กไปหน่อย\")\n*   **Negative:** w002 (\"ส่วนราคาค่อนข้างถูกคะ ต่ำกว่า 100\"), w005 (\"คุณภาพของแย่มาก\")"
+    },
+    {
+      "id": "a09",
+      "question": "What labels can I filter reviews by?",
+      "type": "list",
+      "tools_called": [],
+      "tool_choice": false,
+      "args_exact": false,
+      "answer_ok": null,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 1,
+      "answer": "You can filter reviews by the following aspects: taste, price, service, comfort, portion, and other. You can also filter by sentiment: positive, neutral, or negative."
+    },
+    {
+      "id": "a10",
+      "question": "ลูกค้าพูดถึงบรรยากาศร้านว่ายังไงบ้าง",
+      "type": "summary",
+      "tools_called": [
+        [
+          "aspect_summary",
+          {
+            "aspect": "comfort"
+          }
+        ]
+      ],
+      "tool_choice": true,
+      "args_exact": true,
+      "answer_ok": null,
+      "stopped_by": "answer",
+      "forced_retry": false,
+      "rounds": 2,
+      "answer": "ลูกค้าพูดถึงบรรยากาศร้าน (comfort) ทั้งหมด 114 ครั้ง จากรีวิวที่วิเคราะห์ทั้งหมด 300 รีวิว โดยมีรายละเอียดดังนี้:\n\n*   **เชิงบวก:** 66 ครั้ง (ตัวอย่างเช่น w010: \"ชอบตรงการจัดร้านดูเป็นระเบียบ\", w024: \"ทำเลดีมาก\")\n*   **เป็นกลาง:** 26 ครั้ง (ตัวอย่างเช่น w004: \"รสชาติอาหารโดยรวมอยู่ในเกณฑ์โอเคถึงดี\", w019: \"เส้นเซี่ยงไฮ้ผัดจนชิ้นเล็กไปหน่อย\")\n*   **เชิงลบ:** 22 ครั้ง (ตัวอย่างเช่น w002: \"ส่วนราคาค่อนข้างถูกคะ ต่ำกว่า 100\", w006: \"เค้กรสชาติไม่ประทับใจเท่าไหร่\")"
+    }
+  ]
+}

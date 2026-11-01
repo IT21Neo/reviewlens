@@ -54,3 +54,26 @@ Source files: `results/evaluation_dev.md`, `results/evaluation_test.md`.
 Failure example kept for the report: in v1 the only invalid evidence snippet was for w197,
 where the model wrote "ข้าวมา" but the review says "ข้าาวมา" — the model silently corrected the
 reviewer's typo, so the quote was no longer verbatim.
+
+## Step 4 — agent (tools + loop) on 10 hand-written questions
+
+All 300 reviews analysed with v2 (`llm_v2_all.jsonl`): 300/300 ok, 980/994 evidence snippets
+verbatim (unverified ones are dropped when the app loads the data).
+
+Run 1 (commit e9a18ce, `results/agent_eval.md`): tool_choice 0.80 (n=10), args_exact 0.80 (n=10),
+answer_ok 0.86 (n=7; summary/list questions are not scored on answer text).
+
+| id | question | what happened |
+|---|---|---|
+| a01 | How many reviews mention price? | called `aspect_summary(price)` instead of `count_reviews`; the answer (148) was still correct — the metric accepts only one tool |
+| a05 | รีวิวที่พูดถึงราคา มีกี่รีวิวที่เป็นกลาง | right tool and arguments (tool returned 24), but the model's final reply was an **empty string** and the loop accepted it |
+| a09 | What labels can I filter reviews by? | answered without any tool call (the labels are visible in the tool schemas); the answer was correct |
+
+Change (a loop bug fix, not prompt tuning): an empty final reply is now retried once with no
+tools offered; if it is still empty the agent returns a fixed "empty answer" message with
+`stopped_by="empty"` instead of an empty string. The questions and the prompt are unchanged.
+
+Run 2 (after the fix, `results/agent_eval_v2.md`): _fill in from the real run._
+
+Other limitation seen: example snippets are the review's first verified evidence, which is not
+linked to an aspect — e.g. a06 (negative + taste) showed w002 with a snippet about price.
