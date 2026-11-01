@@ -1,6 +1,7 @@
-# Milestone 1-4: proxy test, unit tests, Excel labeling workbook.
-# Add fastapi, uvicorn, pydantic, httpx in later milestones when they are used.
+# Milestone 1-6: proxy, tests, Excel labeling workbook, structured-output validation.
+# Add fastapi, uvicorn, httpx in later milestones when they are used.
 openai>=1.40
 python-dotenv>=1.0
 pytest>=8.0
 openpyxl>=3.1
+pydantic>=2.5

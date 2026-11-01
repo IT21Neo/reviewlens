@@ -73,7 +73,8 @@ def score(items: list[dict], preds: dict[str, dict], reviews: dict) -> dict:
     missing = [g["review_id"] for g in items if g["review_id"] not in preds]
     # a missing or failed prediction counts as wrong (never silently dropped)
     pred_sent = [(preds.get(g["review_id"]) or {}).get("sentiment") or "missing" for g in items]
-    result = {"n": len(items), "missing": missing,
+    failed = [g["review_id"] for g in items if (preds.get(g["review_id"]) or {}).get("status") == "failed"]
+    result = {"n": len(items), "missing": missing, "failed": failed,
               "sentiment": sentiment_metrics([g["gold_sentiment"] for g in items], pred_sent)}
     if all((preds.get(g["review_id"]) or {}).get("aspects") is not None for g in items if g["review_id"] in preds) \
             and any((preds.get(g["review_id"]) or {}).get("aspects") is not None for g in items):
@@ -95,11 +96,14 @@ def fmt(x) -> str:
 def to_markdown(split: str, n: int, results: dict, stamp: str, commit: str) -> str:
     lines = [f"# Evaluation results — {split} split (n = {n})", "",
              f"Generated {stamp} from commit `{commit}` by `python -m scripts.run_eval --split {split}`.", "",
-             "| Method | Sentiment accuracy | Sentiment macro F1 | Aspect micro F1 | Evidence validity |",
-             "|---|---:|---:|---:|---:|"]
+             "| Method | Sentiment accuracy | Sentiment macro F1 | Aspect micro F1 | Evidence validity | Failed / missing |",
+             "|---|---:|---:|---:|---:|---:|"]
     for name, r in results.items():
         lines.append(f"| {name} | {fmt(r['sentiment']['accuracy'])} | {fmt(r['sentiment']['macro_f1'])} | "
-                     f"{fmt(r.get('aspects', {}).get('micro_f1'))} | {fmt(r.get('evidence', {}).get('validity'))} |")
+                     f"{fmt(r.get('aspects', {}).get('micro_f1'))} | {fmt(r.get('evidence', {}).get('validity'))} | "
+                     f"{len(r.get('failed', []))} / {len(r['missing'])} |")
+    lines += ["", "Failed = the model never returned valid JSON (counted as wrong); missing = no prediction "
+              "for that review (also counted as wrong)."]
     lines += ["", "## Per-aspect F1 (support = gold count)", "",
               "| Method | " + " | ".join(ASPECTS) + " |", "|---|" + "---:|" * len(ASPECTS)]
     for name, r in results.items():
@@ -154,7 +158,7 @@ def main(argv: list[str] | None = None) -> int:
     md = to_markdown(args.split, len(items), results, stamp, commit)
     (RESULTS / f"evaluation_{args.split}.md").write_text(md, encoding="utf-8")
     print(md.split("## Per-aspect")[0])
-    print(f"saved results/evaluation_{args.split}.json and .md")
+    print(f"saved {RESULTS / f'evaluation_{args.split}.json'} and .md")
     return 0
 
 

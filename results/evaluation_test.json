@@ -1,12 +1,13 @@
 {
   "split": "test",
   "n": 30,
-  "generated": "2026-11-01T15:51:43+07:00",
-  "commit": "bfce249",
+  "generated": "2026-11-01T16:05:30+07:00",
+  "commit": "615ef0e",
   "methods": {
     "majority": {
       "n": 30,
       "missing": [],
+      "failed": [],
       "sentiment": {
         "n": 30,
         "accuracy": 0.5666666666666667,
@@ -120,6 +121,7 @@
     "rating": {
       "n": 30,
       "missing": [],
+      "failed": [],
       "sentiment": {
         "n": 30,
         "accuracy": 0.8,
@@ -198,6 +200,7 @@
     "keyword": {
       "n": 30,
       "missing": [],
+      "failed": [],
       "sentiment": {
         "n": 30,
         "accuracy": 0.7666666666666667,
@@ -318,6 +321,119 @@
         {
           "review_id": "w017",
           "gold": "negative",
+          "pred": "neutral"
+        }
+      ]
+    },
+    "llm_v1": {
+      "n": 30,
+      "missing": [],
+      "failed": [],
+      "sentiment": {
+        "n": 30,
+        "accuracy": 0.9,
+        "macro_f1": 0.8204365079365079,
+        "per_class": {
+          "positive": {
+            "precision": 1.0,
+            "recall": 0.8823529411764706,
+            "f1": 0.9375,
+            "support": 17
+          },
+          "neutral": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285715,
+            "support": 3
+          },
+          "negative": {
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          }
+        },
+        "confusion": {
+          "positive": {
+            "positive": 15,
+            "neutral": 2,
+            "negative": 0
+          },
+          "neutral": {
+            "positive": 0,
+            "neutral": 2,
+            "negative": 1
+          },
+          "negative": {
+            "positive": 0,
+            "neutral": 0,
+            "negative": 10
+          }
+        }
+      },
+      "aspects": {
+        "micro_precision": 0.7386363636363636,
+        "micro_recall": 0.8666666666666667,
+        "micro_f1": 0.7975460122699386,
+        "exact_set_match": 0.3,
+        "per_aspect": {
+          "taste": {
+            "precision": 0.9642857142857143,
+            "recall": 1.0,
+            "f1": 0.9818181818181818,
+            "support": 27
+          },
+          "price": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 16
+          },
+          "service": {
+            "precision": 0.8888888888888888,
+            "recall": 0.8888888888888888,
+            "f1": 0.8888888888888888,
+            "support": 9
+          },
+          "comfort": {
+            "precision": 1.0,
+            "recall": 0.3,
+            "f1": 0.4615384615384615,
+            "support": 10
+          },
+          "portion": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "other": {
+            "precision": 0.2777777777777778,
+            "recall": 0.7142857142857143,
+            "f1": 0.4,
+            "support": 7
+          }
+        }
+      },
+      "evidence": {
+        "snippets": 159,
+        "verbatim": 158,
+        "validity": 0.9937106918238994
+      },
+      "errors": [
+        {
+          "review_id": "w111",
+          "gold": "positive",
+          "pred": "neutral"
+        },
+        {
+          "review_id": "w098",
+          "gold": "neutral",
+          "pred": "negative"
+        },
+        {
+          "review_id": "w262",
+          "gold": "positive",
           "pred": "neutral"
         }
       ]
