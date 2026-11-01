@@ -73,7 +73,11 @@ Change (a loop bug fix, not prompt tuning): an empty final reply is now retried 
 tools offered; if it is still empty the agent returns a fixed "empty answer" message with
 `stopped_by="empty"` instead of an empty string. The questions and the prompt are unchanged.
 
-Run 2 (after the fix, `results/agent_eval_v2.md`): _fill in from the real run._
+Run 2 (after the fix, `results/agent_eval_v2.md`): tool_choice 0.80 (n=10), args_exact 0.80 (n=10),
+answer_ok **1.00** (n=7). a05 now shows `retry=True` and its answer contains the correct count;
+a01 and a09 behave as in run 1 (tool selection is unchanged, as expected — only the loop changed).
+Caveat: 10 questions written by us, and the same 10 were used before and after the fix, so this
+shows the bug is fixed on the case that exposed it, not a general improvement in accuracy.
 
 Other limitation seen: example snippets are the review's first verified evidence, which is not
 linked to an aspect — e.g. a06 (negative + taste) showed w002 with a snippet about price.

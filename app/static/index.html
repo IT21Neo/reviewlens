@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReviewLens</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>ReviewLens</h1>
+  <p class="sub">LLM-powered analysis of 300 Thai restaurant reviews (Wongnai corpus, LGPL-3.0)</p>
+  <nav>
+    <button data-tab="dashboard" class="active">Dashboard</button>
+    <button data-tab="reviews">Reviews</button>
+    <button data-tab="ask">Ask</button>
+    <button data-tab="analyze">Analyze a review</button>
+    <button data-tab="evaluation">Evaluation</button>
+  </nav>
+</header>
+
+<div class="notice" id="disclaimer">Labels, counts and answers come from an LLM and can be wrong.</div>
+
+<main>
+  <section id="dashboard" class="tab active">
+    <div class="cards" id="sent-cards"></div>
+    <h2>Aspects mentioned</h2>
+    <p class="hint">Bar length = share of analysed reviews that mention the aspect. Colours split it by review sentiment. Click a row to see those reviews.</p>
+    <div id="aspect-bars"></div>
+    <div class="legend"><span class="sw positive"></span>positive <span class="sw neutral"></span>neutral <span class="sw negative"></span>negative</div>
+  </section>
+
+  <section id="reviews" class="tab">
+    <form id="filters" class="row">
+      <select name="sentiment"><option value="">any sentiment</option></select>
+      <select name="aspect"><option value="">any aspect</option></select>
+      <select name="rating"><option value="">any stars</option></select>
+      <input name="q" placeholder="search text" maxlength="100">
+      <button type="submit">Filter</button>
+    </form>
+    <p id="review-count" class="hint"></p>
+    <div id="review-list"></div>
+    <div class="row"><button id="prev">Previous</button><button id="next">Next</button></div>
+  </section>
+
+  <section id="ask" class="tab">
+    <p class="hint">The agent chooses one of 4 allow-listed tools; Python computes every number. Thai or English.</p>
+    <form id="ask-form" class="row">
+      <input name="question" maxlength="300" required placeholder="e.g. มีรีวิวด้านลบเรื่องบริการกี่รีวิว">
+      <button type="submit">Ask</button>
+    </form>
+    <div class="examples" id="ask-examples"></div>
+    <div id="ask-out"></div>
+  </section>
+
+  <section id="analyze" class="tab">
+    <p class="hint">Paste one restaurant review. It is sent to the model with prompt v2 and is not saved.</p>
+    <form id="analyze-form">
+      <textarea name="text" rows="6" maxlength="2000" required placeholder="อาหารอร่อย แต่รอนานมาก..."></textarea>
+      <div class="row"><button type="submit">Analyze</button><span class="hint" id="char-count">0 / 2000</span></div>
+    </form>
+    <div id="analyze-out"></div>
+  </section>
+
+  <section id="evaluation" class="tab">
+    <h2>Test set metrics (30 hand-checked reviews)</h2>
+    <div id="metric-table"></div>
+    <h2>Agent questions</h2>
+    <div id="agent-table"></div>
+    <h2>Per-review results: llm_v2 on test</h2>
+    <p class="hint" id="case-summary"></p>
+    <div class="row"><button id="show-fail" class="active">Failures</button><button id="show-ok">Successes</button></div>
+    <div id="case-list"></div>
+  </section>
+</main>
+
+<footer>Course capstone · model gemma-4-E4B-it via the course proxy · <a href="/docs">API docs</a></footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

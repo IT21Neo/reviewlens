@@ -1,7 +1,10 @@
-# Milestone 1-6: proxy, tests, Excel labeling workbook, structured-output validation.
-# Add fastapi, uvicorn, httpx in later milestones when they are used.
+# ReviewLens dependencies
 openai>=1.40
 python-dotenv>=1.0
-pytest>=8.0
-openpyxl>=3.1
 pydantic>=2.5
+fastapi>=0.110
+uvicorn>=0.29
+# tests and labelling tools
+pytest>=8.0
+httpx>=0.27
+openpyxl>=3.1

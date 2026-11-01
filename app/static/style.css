@@ -1,0 +1,57 @@
+:root {
+  --bg: #f7f7f5; --panel: #ffffff; --text: #1d1d1b; --muted: #6b6b66; --line: #e2e1dc;
+  --accent: #2f5d8a; --positive: #3d8b5a; --neutral: #b39230; --negative: #c0504d;
+  --ok-bg: #e8f3ec; --bad-bg: #fbeaea; --warn-bg: #fff6dd;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18181a; --panel: #222225; --text: #ececea; --muted: #a2a29c; --line: #36363a;
+    --accent: #7fb0e0; --positive: #5fb37f; --neutral: #d4b452; --negative: #e07673;
+    --ok-bg: #1f3327; --bad-bg: #3a2222; --warn-bg: #3a3320;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.5 system-ui, "Noto Sans Thai", sans-serif; background: var(--bg); color: var(--text); }
+header, main, footer, .notice { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+header { padding-top: 20px; }
+h1 { margin: 0; font-size: 24px; }
+h2 { font-size: 17px; margin: 24px 0 8px; }
+.sub, .hint, footer { color: var(--muted); font-size: 13px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+button { font: inherit; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--text); cursor: pointer; }
+button.active, button[type=submit] { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:disabled { opacity: .5; cursor: default; }
+input, select, textarea { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--text); }
+textarea { width: 100%; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0; }
+.row input[name=question], .row input[name=q] { flex: 1; min-width: 180px; }
+.notice { background: var(--warn-bg); border-radius: 6px; padding: 8px 12px; font-size: 13px; margin-bottom: 8px; }
+.tab { display: none; } .tab.active { display: block; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 12px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+.card .num { font-size: 26px; font-weight: 600; }
+.bar-row { display: grid; grid-template-columns: 90px 1fr 70px; gap: 8px; align-items: center; padding: 4px 0; cursor: pointer; }
+.bar-row:hover { background: var(--panel); }
+.bar { display: flex; height: 18px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.bar span { height: 100%; }
+.positive { background: var(--positive); } .neutral { background: var(--neutral); } .negative { background: var(--negative); }
+.legend { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin: 0 4px 0 10px; }
+.review { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.review .meta { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.review .text { white-space: pre-wrap; margin: 6px 0; max-height: 9em; overflow: auto; }
+.tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; border: 1px solid var(--line); }
+.tag.positive, .tag.neutral, .tag.negative { color: #fff; border: none; }
+.tag.miss { background: var(--bad-bg); } .tag.extra { background: var(--warn-bg); }
+.ev { font-size: 13px; } .ev li.bad { color: var(--negative); }
+.ok-box { background: var(--ok-bg); } .bad-box { background: var(--bad-bg); }
+table { border-collapse: collapse; width: 100%; font-size: 13px; background: var(--panel); }
+th, td { border: 1px solid var(--line); padding: 5px 8px; text-align: left; vertical-align: top; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.scroll { overflow-x: auto; }
+.trace { font-family: ui-monospace, monospace; font-size: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 8px; white-space: pre-wrap; }
+.answer { background: var(--panel); border-left: 4px solid var(--accent); padding: 10px 12px; margin: 10px 0; white-space: pre-wrap; }
+.error { color: var(--negative); }
+.examples button { font-size: 12px; margin: 2px; }
+footer { padding: 24px 16px; }
+footer a { color: var(--accent); }
