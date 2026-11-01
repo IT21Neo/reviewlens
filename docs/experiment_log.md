@@ -34,5 +34,23 @@ crowds or a big menu are not `portion`; two short examples written for the promp
 checks they are not reviews from the dataset). Output format, temperature, retry logic and
 validation are unchanged, so the comparison isolates the prompt.
 
-Results: fill in from `results/evaluation_dev.md` and `results/evaluation_test.md` after
-running both versions — do not edit the numbers by hand.
+## Step 3 — results (copied from the run_eval output of 2026-11-01, commit d559596)
+
+| Split | Method | Sentiment acc | Sentiment macro F1 | Aspect micro F1 | Evidence validity |
+|---|---|---:|---:|---:|---:|
+| dev (n=10) | keyword | 0.700 | 0.500 | 0.820 | — |
+| dev (n=10) | llm_v1 | 0.900 | 0.859 | 0.821 | 0.955 |
+| dev (n=10) | llm_v2 | 0.900 | 0.859 | 0.909 | 0.969 |
+| test (n=30) | rating | 0.800 | 0.727 | — | — |
+| test (n=30) | keyword | 0.767 | 0.623 | 0.800 | — |
+| test (n=30) | llm_v1 | 0.900 | 0.820 | 0.798 | 0.994 |
+| test (n=30) | **llm_v2** | 0.900 | 0.820 | **0.870** | **1.000** |
+
+v2 was run on test once, after it was fixed on dev. Measured change v1 → v2 on test:
+aspect micro F1 +0.072 (0.798 → 0.870), evidence validity 0.994 → 1.000, sentiment unchanged.
+Caveat: 30 test reviews is small; a few reviews decide these differences.
+Source files: `results/evaluation_dev.md`, `results/evaluation_test.md`.
+
+Failure example kept for the report: in v1 the only invalid evidence snippet was for w197,
+where the model wrote "ข้าวมา" but the review says "ข้าาวมา" — the model silently corrected the
+reviewer's typo, so the quote was no longer verbatim.

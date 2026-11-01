@@ -1,0 +1,10 @@
+{"id": "a01", "question": "How many reviews mention price?", "type": "count", "expected": [{"tool": "count_reviews", "args": {"sentiment": null, "aspect": "price"}}]}
+{"id": "a02", "question": "มีรีวิวด้านลบทั้งหมดกี่รีวิว", "type": "count", "expected": [{"tool": "count_reviews", "args": {"sentiment": "negative", "aspect": null}}]}
+{"id": "a03", "question": "How many negative reviews talk about service?", "type": "count", "expected": [{"tool": "count_reviews", "args": {"sentiment": "negative", "aspect": "service"}}]}
+{"id": "a04", "question": "How many positive reviews are there?", "type": "count", "expected": [{"tool": "count_reviews", "args": {"sentiment": "positive", "aspect": null}}]}
+{"id": "a05", "question": "รีวิวที่พูดถึงราคา มีกี่รีวิวที่เป็นกลาง (neutral)", "type": "count", "expected": [{"tool": "count_reviews", "args": {"sentiment": "neutral", "aspect": "price"}}]}
+{"id": "a06", "question": "Show three negative reviews about taste.", "type": "examples", "expected": [{"tool": "get_review_examples", "args": {"sentiment": "negative", "aspect": "taste", "limit": 3}}]}
+{"id": "a07", "question": "ขอตัวอย่างรีวิวที่พูดถึงปริมาณอาหาร 2 รีวิว", "type": "examples", "expected": [{"tool": "get_review_examples", "args": {"sentiment": null, "aspect": "portion", "limit": 2}}]}
+{"id": "a08", "question": "Summarize what customers say about the service.", "type": "summary", "expected": [{"tool": "aspect_summary", "args": {"aspect": "service"}}]}
+{"id": "a09", "question": "What labels can I filter reviews by?", "type": "list", "expected": [{"tool": "list_available_aspects", "args": {}}]}
+{"id": "a10", "question": "ลูกค้าพูดถึงบรรยากาศร้านว่ายังไงบ้าง", "type": "summary", "expected": [{"tool": "aspect_summary", "args": {"aspect": "comfort"}}]}
