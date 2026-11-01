@@ -1,0 +1,24 @@
+# Render Blueprint for the ReviewLens live demo (free web service).
+# Secrets are NOT stored here: "sync: false" makes Render ask for the value in its dashboard.
+services:
+  - type: web
+    name: reviewlens
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        sync: false
+      - key: LIVE_PER_MINUTE
+        value: "5"
+      - key: LIVE_PER_DAY
+        value: "300"
+      - key: LIVE_LLM_ENABLED
+        value: "1"
