@@ -1,60 +1,61 @@
-# Data
+# ข้อมูล (Data)
 
-## Source
+## แหล่งที่มา
 
-| Item | Value |
+| รายการ | ค่า |
 |---|---|
-| Dataset | Wongnai review dataset (restaurant reviews with 1–5 star ratings) |
-| Publisher | Wongnai — https://github.com/wongnai/wongnai-corpus |
-| Pinned commit | `113ad2962374fa3274eeed7e4aa74540472e3bd5` |
-| File used | `review/review_dataset.zip` → `w_review_train.csv` (40,000 reviews, `;`-separated: text, rating) |
-| Zip SHA-256 | `45c3439a5f0a68f438ccfbf4403dd65af797f5ee9df5348a0ed4588cd8bea220` |
-| Origin noted by the publisher | Used in a Kaggle review-rating competition created by Dr. Ekapol Chuangsuwanich |
-| License | GNU LGPL v3 — the license file of the `wongnai-corpus` repository, copied verbatim to `data/LICENSE-wongnai-corpus.txt` |
+| ชุดข้อมูล | Wongnai review dataset (รีวิวร้านอาหาร พร้อมคะแนน 1–5 ดาว) |
+| ผู้เผยแพร่ | Wongnai: https://github.com/wongnai/wongnai-corpus |
+| Commit ที่ตรึงไว้ | `113ad2962374fa3274eeed7e4aa74540472e3bd5` |
+| ไฟล์ที่ใช้ | `review/review_dataset.zip` → `w_review_train.csv` (40,000 รีวิว คั่นด้วย `;` มี 2 คอลัมน์คือ ข้อความ และคะแนน) |
+| SHA-256 ของไฟล์ zip | `45c3439a5f0a68f438ccfbf4403dd65af797f5ee9df5348a0ed4588cd8bea220` |
+| ที่มาตามที่ผู้เผยแพร่ระบุ | ใช้ในการแข่งขันทำนายคะแนนรีวิวบน Kaggle ซึ่งจัดโดย ดร.เอกพล ช่วงสุวนิช |
+| สัญญาอนุญาต | GNU LGPL v3 คัดลอกไฟล์สัญญาอนุญาตจาก repository `wongnai-corpus` มาไว้ที่ `data/LICENSE-wongnai-corpus.txt` โดยไม่แก้ไข |
 
-**License note.** The LGPL is a software license; the publisher applies it to the whole
-repository, including the data. It permits copying and redistributing verbatim copies,
-provided the license text is included, which is why `LICENSE-wongnai-corpus.txt` is here.
-This project only redistributes a 300-review sample and states the modifications below.
-This is our reading of the license, not legal advice.
+**หมายเหตุเรื่องสัญญาอนุญาต:** LGPL เป็นสัญญาอนุญาตสำหรับซอฟต์แวร์ แต่ผู้เผยแพร่ใช้กับทั้ง repository ซึ่งรวมถึงข้อมูลด้วย
+สัญญานี้อนุญาตให้คัดลอกและเผยแพร่ต่อแบบไม่แก้ไขได้ โดยต้องแนบข้อความสัญญาอนุญาตไปด้วย
+จึงมีไฟล์ `LICENSE-wongnai-corpus.txt` อยู่ในโฟลเดอร์นี้
+โปรเจกต์นี้เผยแพร่ต่อเพียงตัวอย่าง 300 รีวิว และระบุสิ่งที่แก้ไขไว้ด้านล่าง
+ทั้งหมดนี้เป็นการตีความสัญญาอนุญาตของผู้จัดทำ ไม่ใช่คำแนะนำทางกฎหมาย
 
-## Files
+## ไฟล์
 
-| File | Committed? | What |
+| ไฟล์ | commit ขึ้น git ไหม | คืออะไร |
 |---|---|---|
-| `reviews.csv` | yes | 300-review working sample (see below) |
-| `LICENSE-wongnai-corpus.txt` | yes | the corpus license |
-| `raw/review_dataset.zip` | **no** (git-ignored) | downloaded by `scripts/prepare_data.py`, checksum-verified |
+| `reviews.csv` | ใช่ | ชุดตัวอย่างที่ใช้งาน 300 รีวิว (ดูวิธีสร้างด้านล่าง) |
+| `LICENSE-wongnai-corpus.txt` | ใช่ | สัญญาอนุญาตของคลังข้อมูล |
+| `raw/review_dataset.zip` | **ไม่** (git ignore ไว้) | ดาวน์โหลดโดย `scripts/prepare_data.py` และตรวจ checksum แล้ว |
+| `eval/gold_labels.jsonl` | ใช่ | gold label 40 รีวิว (dev 10, test 30) ใช้ประเมินผล |
+| `eval/labeling.xlsx` | ใช่ | ไฟล์ Excel ที่ใช้ติด label พร้อมชีตคู่มือภาษาไทย |
+| `eval/suggestions_*_claude.csv` | ใช่ | label ที่ Claude เสนอ เก็บไว้เพื่อความโปร่งใส |
+| `eval/agent_questions.jsonl` | ใช่ | คำถาม 10 ข้อสำหรับประเมิน agent |
 
-## How `reviews.csv` was made
+## วิธีสร้าง `reviews.csv`
 
-Run `python -m scripts.prepare_data`. It is deterministic (fixed seed 42, pinned commit, checksum).
+รันคำสั่ง `python -m scripts.prepare_data` ผลที่ได้จะเหมือนเดิมทุกครั้ง เพราะตรึง seed ไว้ที่ 42 ตรึง commit และตรวจ checksum
 
-1. Line endings normalised, repeated spaces and blank lines collapsed, leading/trailing whitespace stripped.
-2. Thai phone-number patterns replaced with `[PHONE]`.
-3. Only reviews of 30–1,500 characters kept (very short reviews carry little to analyse; very long ones cost many tokens).
-4. **Stratified sample: 60 reviews per star rating (300 total).** The original corpus is
-   skewed (about 47% are 4-star and about 1% are 1-star), so a random sample would contain
-   almost no negative reviews. Consequence: counts and percentages in ReviewLens describe
-   *this balanced sample*, not Wongnai reviews in general.
+1. ปรับการขึ้นบรรทัดให้เป็นแบบเดียวกัน ยุบช่องว่างที่ซ้ำและบรรทัดว่างที่ซ้ำ และตัดช่องว่างหน้า/ท้ายข้อความ
+2. แทนรูปแบบเบอร์โทรศัพท์ไทยด้วย `[PHONE]`
+3. เก็บเฉพาะรีวิวที่ยาว 30–1,500 ตัวอักษร (รีวิวสั้นมากมีเนื้อหาให้วิเคราะห์น้อย ส่วนรีวิวยาวมากใช้ token เยอะ)
+4. **สุ่มแบบแบ่งชั้น (stratified) ดาวละ 60 รีวิว รวม 300 รีวิว** เพราะคลังข้อมูลต้นฉบับไม่สมดุล
+   (ประมาณ 47% เป็น 4 ดาว และมีเพียงประมาณ 1% ที่เป็น 1 ดาว) ถ้าสุ่มธรรมดาจะแทบไม่ได้รีวิวด้านลบเลย
+   ผลที่ตามมาคือ **จำนวนและเปอร์เซ็นต์ใน ReviewLens บรรยายเฉพาะชุดตัวอย่างที่สมดุลนี้** ไม่ได้แทนรีวิว Wongnai โดยรวม
 
-## Schema
+## โครงสร้างคอลัมน์ (schema)
 
-| Field | Value in this dataset |
+| คอลัมน์ | ค่าในชุดข้อมูลนี้ |
 |---|---|
-| `review_id` | `w001` … `w300` (stable, assigned after sorting by original row) |
-| `product_id` | always `restaurant` — the corpus has no restaurant or product identifier |
-| `review_text` | cleaned review text (Thai, informal) |
-| `rating` | 1–5 stars as given by the reviewer |
-| `review_date` | empty — not available in the corpus |
-| `source` | `wongnai-corpus@<commit>/w_review_train.csv#row=<original row index>` for traceability |
+| `review_id` | `w001` … `w300` (ค่าคงที่ กำหนดหลังเรียงตามลำดับแถวในต้นฉบับ) |
+| `product_id` | เป็น `restaurant` เสมอ เพราะคลังข้อมูลไม่มีรหัสร้านหรือรหัสสินค้า |
+| `review_text` | ข้อความรีวิวที่ทำความสะอาดแล้ว (ภาษาไทย ภาษาไม่เป็นทางการ) |
+| `rating` | คะแนน 1–5 ดาวที่ผู้รีวิวให้ |
+| `review_date` | ว่าง เพราะคลังข้อมูลไม่มีวันที่ |
+| `source` | `wongnai-corpus@<commit>/w_review_train.csv#row=<เลขแถวในต้นฉบับ>` ใช้ย้อนกลับไปหาต้นฉบับได้ |
 
-## Privacy and limits
+## ความเป็นส่วนตัวและข้อจำกัด
 
-- The corpus contains review text and ratings only — no usernames or reviewer IDs.
-- Phone numbers are masked. Review text may still mention restaurant names, staff
-  nicknames or places; we did not attempt full PII removal.
-- Reviews are restaurant reviews, not product reviews, so the aspect taxonomy is adapted
-  to restaurants (see the annotation guideline in Milestone 4).
-- The data files inside the zip are dated 2018; prices and restaurants
-  may no longer be current.
+- คลังข้อมูลมีเพียงข้อความรีวิวและคะแนน ไม่มีชื่อผู้ใช้หรือรหัสผู้รีวิว
+- ปิดบังเบอร์โทรศัพท์แล้ว แต่ข้อความรีวิวอาจยังมีชื่อร้าน ชื่อเล่นพนักงาน หรือชื่อสถานที่
+  ผู้จัดทำไม่ได้ลบข้อมูลส่วนบุคคล (PII) ออกทั้งหมด
+- เป็นรีวิวร้านอาหาร ไม่ใช่รีวิวสินค้า หมวด aspect จึงออกแบบให้เหมาะกับร้านอาหาร (ดู `docs/annotation_guideline.md`)
+- ไฟล์ข้อมูลใน zip ลงวันที่ปี 2018 ราคาและร้านอาหารอาจไม่เป็นปัจจุบันแล้ว
